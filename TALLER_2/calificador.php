@@ -13,23 +13,25 @@ if ($calificacion >= 90) {
 }
 echo "<br>";
 
-if ($puntuacion >= 60) {
-    $resultado = "Aprobado";
+if ($calificacion >= 60) {
+    echo $resultado = "Aprobado <br>";
 } else {
-    $resultado = "Reprobado";
+    echo $resultado = "Reprobado <br>";
 }
+echo "<br>";
+
 
 switch (true) {
-    case ($puntuacion >= 90):
+    case ($calificacion >= 90):
         echo "Excelente trabajo.<br>";
         break;
-    case ($puntuacion >= 80):
+    case ($calificacion >= 80):
         echo "Buen trabajo.<br>";
         break;
-    case ($puntuacion >= 70):
+    case ($calificacion >= 70):
         echo "Trabajo aceptable.<br>";
         break;
-    case ($puntuacion >= 60):
+    case ($calificacion >= 60):
         echo "Necesitas mejorar.<br>";
         break;
     default:
