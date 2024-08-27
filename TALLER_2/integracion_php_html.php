@@ -17,8 +17,8 @@
     <h1>Integración de PHP con HTML</h1>
     
     <?php
-    $nombre = "Juan";
-    $edad = 25;
+    $nombre = "David";
+    $edad = 23;
     $habilidades = ["PHP", "HTML", "CSS", "JavaScript"];
     ?>
 
