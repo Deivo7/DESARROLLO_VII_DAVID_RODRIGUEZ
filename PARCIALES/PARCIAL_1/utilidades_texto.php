@@ -16,10 +16,4 @@ function contar_vocales($texto) {
 
     return $contador;
 }
-
-function invertir_palabras($texto) {
-    $palabras = explode(" ", $texto);
-    $palabras_invertidas = array_reverse($palabras);
-    return implode(" ", $palabras_invertidas);
-}
 ?>
