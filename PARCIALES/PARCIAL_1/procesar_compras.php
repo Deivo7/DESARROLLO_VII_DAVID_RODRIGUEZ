@@ -26,4 +26,8 @@ $descuento = calcular_descuento($subtotal);
 $impuesto = aplicar_impuesto($subtotal);
 $total_a_pagar = calcular_total($subtotal, $descuento, $impuesto);
 
+echo "<h2>Resumen de la Compra</h2>";
+echo "<table border='1'>";
+echo "<tr><th>Producto</th><th>Cantidad</th><th>Precio Unitario</th><th>Precio Total</th></tr>";
+
 ?>
