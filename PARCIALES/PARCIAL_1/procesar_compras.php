@@ -23,7 +23,7 @@ foreach ($carrito as $producto => $cantidad) {
 }
 
 $descuento = calcular_descuento($subtotal);
-
+$impuesto = aplicar_impuesto($subtotal);
 
 
 ?>
