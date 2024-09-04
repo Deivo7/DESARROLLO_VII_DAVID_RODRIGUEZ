@@ -22,5 +22,8 @@ foreach ($carrito as $producto => $cantidad) {
     $subtotal += $productos[$producto] * $cantidad;
 }
 
+$descuento = calcular_descuento($subtotal);
+
+
 
 ?>
