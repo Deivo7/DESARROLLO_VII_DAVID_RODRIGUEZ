@@ -9,4 +9,14 @@ $productos = [
     'sombrero' => 25
 ];
 
+$carrito = [
+    'camisa' => 2,
+    'pantalon' => 1,
+    'zapatos' => 1,
+    'calcetines' => 3,
+    'gorra' => 0
+];
+
+
+
 ?>
