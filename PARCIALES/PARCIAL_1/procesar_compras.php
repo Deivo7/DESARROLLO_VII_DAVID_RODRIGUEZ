@@ -17,6 +17,10 @@ $carrito = [
     'gorra' => 0
 ];
 
+$subtotal = 0;
+foreach ($carrito as $producto => $cantidad) {
+    $subtotal += $productos[$producto] * $cantidad;
+}
 
 
 ?>
