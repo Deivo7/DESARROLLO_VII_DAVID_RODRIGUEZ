@@ -10,11 +10,11 @@ $productos = [
 ];
 
 $carrito = [
-    'camisa' => 2,
-    'pantalon' => 1,
-    'zapatos' => 1,
-    'calcetines' => 3,
-    'gorra' => 0
+    'sueter' => 2,
+    'jeans' => 1,
+    'abrigo' => 1,
+    'franela' => 3,
+    'sombrero' => 0
 ];
 
 $subtotal = 0;
