@@ -56,6 +56,21 @@ class TareaDesarrollo extends Tarea {
 }
 
 
+// Clase TareaDiseño
+class TareaDiseno extends Tarea {
+    public $herramientaDiseno;
+
+    public function __construct($datos) {
+        parent::__construct($datos);
+        $this->herramientaDiseno = $datos['herramientaDiseno'] ?? '';
+    }
+
+    public function obtenerDetallesEspecificos(): string {
+        return "Herramienta de Diseño: $this->herramientaDiseno";
+    }
+}
+
+
 // Interfaz: Detalle.php
 interface Detalle {
     public function obtenerDetallesEspecificos(): string;
