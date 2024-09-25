@@ -16,7 +16,7 @@ $sortField = isset($_GET['field']) ? $_GET['field'] : 'id';
 $sortDirection = isset($_GET['direction']) ? $_GET['direction'] : 'ASC';
 $filterEstado = isset($_GET['filterEstado']) ? $_GET['filterEstado'] : '';
 
-//array de prioridades
+//arrays de Opciones
 $prioridadesLegibles = [
     1 => "Alta",
     2 => "Media alta",
@@ -24,9 +24,14 @@ $prioridadesLegibles = [
     4 => "Media baja",
     5 => "Baja",
 ];
+$estadosLegibles = [
+    "pendiente" => "Pendiente",
+    "en_progreso" => "En Progreso",
+    "completada" => "Completada"
+];
 
 $tareas = null;
-
+$gestorTareas = new GestorTareas();
 switch ($action) {
     case 'add':
         // Crear una nueva tarea
@@ -51,7 +56,6 @@ switch ($action) {
 
 // Cargar las tareas si aún no se han cargado
 if ($tareas === null) {
-    $gestorTareas = new GestorTareas();
     $tareas = $gestorTareas->cargarTareas();
 }
 
@@ -94,11 +98,11 @@ if ($tareas === null) {
             </div>
             <div class="col">
                 <select class="form-select" name="prioridad" required>
-                    <option value="">Prioridad</option>
+                    <!-- <option value="">Prioridad</option> -->
                     <?php
                     for ($i = 1; $i <= 5; $i++) {
                         $selected = ($tareaEnEdicion && $tareaEnEdicion->prioridad == $i) ? 'selected' : '';
-                        echo "<option value=\"$i\" $selected>$i " . ($i == 1 ? '(Alta)' : ($i == 5 ? '(Baja)' : '')) . "</option>";
+                        echo "<option value=\"$i\" $selected>$prioridadesLegibles[$i]</option>";
                     }
                     ?>
                 </select>
@@ -133,10 +137,11 @@ if ($tareas === null) {
             <input type="hidden" name="action" value="filter">
             <div class="col-auto">
                 <select name="filterEstado" class="form-select">
-                    <option value="">Todos los estados</option>
-                    <option value="pendiente" <?php echo $filterEstado == 'pendiente' ? 'selected' : ''; ?>>Pendiente</option>
-                    <option value="en_progreso" <?php echo $filterEstado == 'en_progreso' ? 'selected' : ''; ?>>En Progreso</option>
-                    <option value="completada" <?php echo $filterEstado == 'completada' ? 'selected' : ''; ?>>Completada</option>
+                    <?php
+                    foreach ($estadosLegibles as $id => $estado) {
+                        echo "<option value=\"$id\">$estado</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="col-auto">
@@ -221,5 +226,10 @@ if ($tareas === null) {
         });
     </script>
 </body>
+<?php
+foreach ($prioridadesLegibles as $id => $priori) {
+    echo $prioridadesLegibles[$id];
+}
+?>
 
 </html>
