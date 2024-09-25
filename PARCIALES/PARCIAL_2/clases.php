@@ -51,7 +51,7 @@ class GestorTareas {
         return $this->tareas;
     }
 
-    // Implementar métodos adicionales
+    // Implementacion métodos adicionales
     public function agregarTarea($tarea) {
         $this->tareas[] = $tarea;
         $this->guardarTareas();

@@ -18,32 +18,28 @@ $filterEstado = isset($_GET['filterEstado']) ? $_GET['filterEstado'] : '';
 
 $tareas = null;
 
-// Procesar la acción
 switch ($action) {
     case 'add':
-        // Los estudiantes deben implementar esta lógica
+        // Crear una nueva tarea
+        $nuevaTarea = null;
+        switch ($_GET['tipo']) {
+            case 'desarrollo':
+                $nuevaTarea = new TareaDesarrollo($_GET);
+                break;
+            case 'diseno':
+                $nuevaTarea = new TareaDiseno($_GET);
+                break;
+            case 'testing':
+                $nuevaTarea = new TareaTesting($_GET);
+                break;
+        }
+        if ($nuevaTarea) {
+            $gestorTareas->agregarTarea($nuevaTarea);
+            $mensaje = "Tarea añadida exitosamente.";
+        }
         break;
-
-    case 'edit':
-        // Los estudiantes deben implementar esta lógica
-        break;
-
-    case 'delete':
-        // Los estudiantes deben implementar esta lógica
-        break;
-
-    case 'status':
-        // Los estudiantes deben implementar esta lógica
-        break;
-
-    case 'filter':
-        // Los estudiantes deben implementar esta lógica
-        break;
-
-    case 'list':
-    default:
-        // Por ahora, simplemente cargamos todas las tareas
-        break;
+    
+        
 }
 
 // Cargar las tareas si aún no se han cargado
@@ -197,6 +193,7 @@ if ($tareas === null) {
         campoTesting.style.display = 'none';
         
         switch(this.value) {
+            
             case 'desarrollo':
                 campoEspecifico.style.display = 'block';
                 campoDesarrollo.style.display = 'block';
