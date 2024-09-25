@@ -1,7 +1,7 @@
 <?php
 // Archivo: clases.php
 
-class Tarea {
+class Tarea implements Detalle{
     public $id;
     public $titulo;
     public $descripcion;
@@ -14,6 +14,10 @@ class Tarea {
         foreach ($datos as $key => $value) {
             $this->$key = $value;
         }
+    }
+
+    public function obtenerDetallesEspecificos(): string {
+        return ''; // Se sobrescribirá en las clases hijas
     }
 
     // Implementar estos getters
@@ -35,6 +39,17 @@ class GestorTareas {
         return $this->tareas;
     }
 }
+
+// Interfaz: Detalle.php
+interface Detalle {
+    public function obtenerDetallesEspecificos(): string;
+}
+
+
+
+
+
+
 
 // Implementar:
 // 1. La interfaz Detalle
