@@ -32,13 +32,69 @@ class GestorTareas {
         $json = file_get_contents('tareas.json');
         $data = json_decode($json, true);
         foreach ($data as $tareaData) {
-            $tarea = new Tarea($tareaData);
+            switch ($tareaData['tipo']) {
+                case 'desarrollo':
+                    $tarea = new TareaDesarrollo($tareaData);
+                    break;
+                case 'diseno':
+                    $tarea = new TareaDiseno($tareaData);
+                    break;
+                case 'testing':
+                    $tarea = new TareaTesting($tareaData);
+                    break;
+                default:
+                    $tarea = new Tarea($tareaData); // Caso por defecto
+            }
             $this->tareas[] = $tarea;
         }
         
         return $this->tareas;
     }
+
+    // Implementar métodos adicionales
+    public function agregarTarea($tarea) {
+        $this->tareas[] = $tarea;
+        $this->guardarTareas();
+    }
+
+    public function eliminarTarea($id) {
+        $this->tareas = array_filter($this->tareas, function ($tarea) use ($id) {
+            return $tarea->id != $id;
+        });
+        $this->guardarTareas();
+    }
+
+    public function actualizarTarea($tareaActualizada) {
+        foreach ($this->tareas as &$tarea) {
+            if ($tarea->id == $tareaActualizada->id) {
+                $tarea = $tareaActualizada;
+                break;
+            }
+        }
+        $this->guardarTareas();
+    }
+
+    public function actualizarEstadoTarea($id, $nuevoEstado) {
+        foreach ($this->tareas as &$tarea) {
+            if ($tarea->id == $id) {
+                $tarea->estado = $nuevoEstado;
+                break;
+            }
+        }
+        $this->guardarTareas();
+    }
+
+    public function buscarTareasPorEstado($estado) {
+        return array_filter($this->tareas, function ($tarea) use ($estado) {
+            return $tarea->estado == $estado;
+        });
+    }
+
+    private function guardarTareas() {
+        file_put_contents('tareas.json', json_encode($this->tareas));
+    }
 }
+
 
 
 // Clase TareaDesarrollo
@@ -84,6 +140,8 @@ class TareaTesting extends Tarea {
         return "Tipo de Test: $this->tipoTest";
     }
 }
+
+
 
 
 // Interfaz: Detalle.php
