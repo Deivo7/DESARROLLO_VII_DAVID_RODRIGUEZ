@@ -71,6 +71,21 @@ class TareaDiseno extends Tarea {
 }
 
 
+// Clase TareaTesting
+class TareaTesting extends Tarea {
+    public $tipoTest;
+
+    public function __construct($datos) {
+        parent::__construct($datos);
+        $this->tipoTest = $datos['tipoTest'] ?? '';
+    }
+
+    public function obtenerDetallesEspecificos(): string {
+        return "Tipo de Test: $this->tipoTest";
+    }
+}
+
+
 // Interfaz: Detalle.php
 interface Detalle {
     public function obtenerDetallesEspecificos(): string;
