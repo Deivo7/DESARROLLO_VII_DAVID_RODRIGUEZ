@@ -40,6 +40,22 @@ class GestorTareas {
     }
 }
 
+
+// Clase TareaDesarrollo
+class TareaDesarrollo extends Tarea {
+    public $lenguajeProgramacion;
+
+    public function __construct($datos) {
+        parent::__construct($datos);
+        $this->lenguajeProgramacion = $datos['lenguajeProgramacion'] ?? '';
+    }
+
+    public function obtenerDetallesEspecificos(): string {
+        return "Lenguaje de Programación: $this->lenguajeProgramacion";
+    }
+}
+
+
 // Interfaz: Detalle.php
 interface Detalle {
     public function obtenerDetallesEspecificos(): string;
