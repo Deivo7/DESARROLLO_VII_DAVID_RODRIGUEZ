@@ -1,10 +1,5 @@
 <?php
-interface Detalle{
-    function obtenerDetallesEspecificos():string;
-}
-
-
-abstract class Entrada implements Detalle {
+class Entrada {
     public $id;
     public $fecha_creacion;
     public $tipo;
@@ -43,4 +38,26 @@ class GestorBlog {
     public function obtenerEntradas() {
         return $this->entradas;
     }
-}   
+ 
+  
+  abstract public function obtenerDetallesEspecificos(): string;
+}
+
+class EntradaUnaColumna extends Entrada {
+    public function obtenerDetallesEspecificos(): string {
+        return "Entrada de una columna: " . $this->titulo;
+    }
+}
+
+class EntradaDosColumnas extends Entrada {
+    public function obtenerDetallesEspecificos(): string {
+        return "Entrada de dos columnas: " . $this->titulo1 . " | " . $this->titulo2;
+    }
+}
+
+class EntradaTresColumnas extends Entrada {
+    public function obtenerDetallesEspecificos(): string {
+        return "Entrada de tres columnas: " . $this->titulo1 . " | " . $this->titulo2 . " | " . $this->titulo3;
+    }
+}
+
