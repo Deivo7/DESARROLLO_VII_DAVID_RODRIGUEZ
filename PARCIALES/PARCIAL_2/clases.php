@@ -1,5 +1,10 @@
 <?php
-class Entrada {
+interface Detalle{
+    function obtenerDetallesEspecificos():string;
+}
+
+
+abstract class Entrada implements Detalle {
     public $id;
     public $fecha_creacion;
     public $tipo;
