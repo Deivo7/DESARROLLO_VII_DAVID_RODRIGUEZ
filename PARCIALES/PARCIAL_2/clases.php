@@ -61,3 +61,4 @@ class EntradaTresColumnas extends Entrada {
     }
 }
 
+?>
