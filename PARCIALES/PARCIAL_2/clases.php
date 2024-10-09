@@ -46,6 +46,13 @@ class GestorBlog {
         return $this->entradas;
     }
 
+    public function agregarEntrada(Entrada $entrada)  {
+        $entrada=["id"=> $id, "fecha_creacion"=> $fecha_creacion, "tipo"=> $tipo, "titulo"=>$titulo, "descripción"=>$descripcion ];
+        $entradas[]=$entrada;
+        $jsonActualizado=json_encode($entradas,JSON_PRETTY_PRINT);
+        cargarEntradas();
+    }
+    
     public function obtenerDetallesEspecificos(): string;
 }
 
