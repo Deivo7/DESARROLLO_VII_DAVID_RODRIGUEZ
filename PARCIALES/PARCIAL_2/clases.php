@@ -5,6 +5,13 @@ class Entrada {
     public $tipo;
     public $titulo;
     public $descripcion;
+    public $titulo1;
+    public $descripcion1;
+    public $titulo2;
+    public $descripcion2;
+    public $titulo3;
+    public $descripcion3;
+
 
     public function __construct($datos = []) {
         foreach ($datos as $key => $value) {
