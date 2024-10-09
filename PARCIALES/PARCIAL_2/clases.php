@@ -1,4 +1,9 @@
 <?php
+
+interface Detalle {
+    public function obtenerDetallesEspecificos(): string;
+}
+
 class Entrada {
     public $id;
     public $fecha_creacion;
@@ -20,8 +25,11 @@ class Entrada {
             }
         }
     }
-}
 
+    
+    }
+    
+    
 class GestorBlog {
     private $entradas = [];
 
@@ -53,8 +61,8 @@ class GestorBlog {
         cargarEntradas();
     }
     
-    public function obtenerDetallesEspecificos(): string;
 }
+
 
 class EntradaUnaColumna extends Entrada {
     public function obtenerDetallesEspecificos(): string {
@@ -73,5 +81,8 @@ class EntradaTresColumnas extends Entrada {
         return "Entrada de tres columnas: " . $this->titulo1 . " | " . $this->titulo2 . " | " . $this->titulo3;
     }
 }
+
+// Definición de la interfaz Detalle
+
 
 ?>
