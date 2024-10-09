@@ -45,9 +45,8 @@ class GestorBlog {
     public function obtenerEntradas() {
         return $this->entradas;
     }
- 
-  
-  abstract public function obtenerDetallesEspecificos(): string;
+
+    public function obtenerDetallesEspecificos(): string;
 }
 
 class EntradaUnaColumna extends Entrada {
