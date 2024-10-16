@@ -29,22 +29,36 @@ function validarComentarios($comentarios) {
     return strlen($comentarios) <= 500;
 }
 
-function validarFotoPerfil($archivo) {
-    $tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif'];
-    $tamanoMaximo = 1 * 1024 * 1024; // 1MB
-
-    if ($archivo['error'] !== UPLOAD_ERR_OK) {
+function validarFechaNacimiento($fecha) {
+    $fechaActual = new DateTime();
+    $fechaNacimiento = DateTime::createFromFormat('Y-m-d', $fecha);
+    
+    if (!$fechaNacimiento) {
         return false;
     }
+    
+    $edad = $fechaActual->diff($fechaNacimiento)->y;
+    return $edad >= 18 && $edad <= 100;
+}
 
+function validarFotoPerfil($archivo) {
+    $tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif'];
+    $tamanoMaximo = 2 * 1024 * 1024; // 2MB
+    
     if (!in_array($archivo['type'], $tiposPermitidos)) {
         return false;
     }
-
+    
     if ($archivo['size'] > $tamanoMaximo) {
         return false;
     }
-
+    
+    // Verificar si ya existe un archivo con el mismo nombre
+    $rutaDestino = 'uploads/' . basename($archivo['name']);
+    if (file_exists($rutaDestino)) {
+        return false;
+    }
+    
     return true;
 }
 ?>

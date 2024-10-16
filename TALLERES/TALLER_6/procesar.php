@@ -1,3 +1,4 @@
+
 <?php
 require_once 'validaciones.php';
 require_once 'sanitizacion.php';
@@ -56,4 +57,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Acceso no permitido.";
 }
 ?>
-        
