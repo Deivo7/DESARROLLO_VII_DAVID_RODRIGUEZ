@@ -66,7 +66,7 @@ class GestorBlog {
 
 class EntradaUnaColumna extends Entrada {
     public function obtenerDetallesEspecificos(): string {
-        return "Entrada de una columna: " . $this->titulo;
+        return "Entrada de una columna: " . $this->$titulo;
     }
 }
 
