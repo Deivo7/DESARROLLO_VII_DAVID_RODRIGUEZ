@@ -14,9 +14,9 @@ function validarUsuario($usuario) {
             preg_match('/[0-9]/', $usuario));
 }
 
-//Funcion para validar caracteres de la contraseña
-function validarContra($contrasena){
-    return(sterlen($contrasena)) >=5 &&
+// Función para validar que la contraseña tenga al menos 5 caracteres
+function validarContra($contrasena) {
+    return strlen($contrasena) >= 5;
 }
 
 // Procesar el formulario cuando se envía
@@ -26,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!validarUsuario($usuario)) {
         $error = "El nombre de usuario debe tener al menos 3 caracteres y contener letras y números.";
+    } elseif (!validarContra($contrasena)) {
+        $error = "La contraseña debe tener al menos 5 caracteres.";
     } else {
         // En un caso real, verificaríamos contra una base de datos
         if($usuario === "profesor1" && $contrasena === "prof1234") {
