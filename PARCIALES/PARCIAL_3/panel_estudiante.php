@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Verificar es un estudiante
+// Verificar que es un estudiante
 if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== 'estudiante') {
     header("Location: login.php");
     exit();
