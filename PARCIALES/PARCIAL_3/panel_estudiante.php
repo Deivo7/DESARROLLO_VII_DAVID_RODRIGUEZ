@@ -34,11 +34,11 @@ $estudiante_actual = $estudiantes[$_SESSION['usuario']] ?? null;
     </style>
 </head>
 <body>
-    <h1>Bienvenido, <?php echo htmlspecialchars($estudiante_actual['nombre'] ?? $_SESSION['usuario']); ?></h1>
+    <h1>Bienvenido, <?php echo ($estudiante_actual['nombre'] ?? $_SESSION['usuario']); ?></h1>
     
     <?php if ($estudiante_actual): ?>
         <h2>Tu calificación actual es:</h2>
-        <p class="calificacion"><?php echo htmlspecialchars($estudiante_actual['calificacion']); ?></p>
+        <p class="calificacion"><?php echo ($estudiante_actual['calificacion']); ?></p>
     <?php else: ?>
         <p>Lo sentimos, no se encontraron datos para tu usuario.</p>
     <?php endif; ?>
