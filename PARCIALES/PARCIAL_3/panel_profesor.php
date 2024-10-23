@@ -38,7 +38,7 @@ $estudiantes = [
     </style>
 </head>
 <body>
-    <h1>Bienvenido! <?php echo htmlspecialchars($_SESSION['usuario']); ?></h1>
+    <h1>Bienvenido! <?php echo ($_SESSION['usuario']); ?></h1>
     
     <h2>Lista de Estudiantes y Calificaciones</h2>
     <table>
@@ -49,9 +49,9 @@ $estudiantes = [
         </tr>
         <?php foreach ($estudiantes as $estudiante): ?>
         <tr>
-            <td><?php echo htmlspecialchars($estudiante['id']); ?></td>
-            <td><?php echo htmlspecialchars($estudiante['nombre']); ?></td>
-            <td><?php echo htmlspecialchars($estudiante['calificacion']); ?></td>
+            <td><?php echo ($estudiante['id']); ?></td>
+            <td><?php echo ($estudiante['nombre']); ?></td>
+            <td><?php echo ($estudiante['calificacion']); ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
