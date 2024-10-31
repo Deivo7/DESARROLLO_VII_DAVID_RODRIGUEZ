@@ -1,3 +1,4 @@
+
 <?php
 require_once "config_pdo.php";
 
@@ -17,8 +18,8 @@ try {
     
     echo "<h3>Productos con precio mayor al promedio de su categoría:</h3>";
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "Producto: {$row['nombre']}, Precio: " . number_format($row['precio'], 2) . "$,";
-        echo "Categoría: {$row['categoria']}, Promedio categoría:" . number_format($row['promedio_categoria'], 2) . "$<br>";
+        echo "Producto: {$row['nombre']}, Precio: ${$row['precio']}, ";
+        echo "Categoría: {$row['categoria']}, Promedio categoría: ${$row['promedio_categoria']}<br>";
     }
 
     // 2. Clientes con compras superiores al promedio
@@ -39,8 +40,8 @@ try {
     
     echo "<h3>Clientes con compras superiores al promedio:</h3>";
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "Cliente: {$row['nombre']}, Total compras: " . number_format ($row['total_compras'],2) . "$, ";
-        echo "Promedio general:" .number_format($row['promedio_ventas'],2) . "$<br>";
+        echo "Cliente: {$row['nombre']}, Total compras: ${$row['total_compras']}, ";
+        echo "Promedio general: ${$row['promedio_ventas']}<br>";
     }
 
 } catch(PDOException $e) {
