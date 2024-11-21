@@ -1,5 +1,5 @@
 <?php
-define('GITHUB_TOKEN', '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');
+define('GITHUB_TOKEN', 'tu_token_aqui');
 define('GITHUB_API_URL', 'https://api.github.com');
 define('USER_AGENT', 'PHP GitHub API Client');
 
@@ -81,4 +81,3 @@ class GitHubClient {
 // Crear instancia del cliente
 $github = new GitHubClient(GITHUB_TOKEN, GITHUB_API_URL, USER_AGENT);
 ?>
-        
