@@ -1,0 +1,58 @@
+Documento de Requerimientos - Página web de clasificados, venta de productos
+1. Introducción
+Nombre del Proyecto: Página web de clasificados, venta de productos
+Descripción General: Este documento describe los requisitos funcionales y no
+funcionales para el desarrollo de una página web de clasificados para la venta de
+productos. El proyecto será desarrollado utilizando PHP y MySQL, sin el uso de
+frameworks.
+2. Objetivos del Proyecto
+• Proveer una plataforma en línea para la publicación y búsqueda de anuncios
+clasificados de productos en venta.
+• Facilitar la gestión de anuncios y usuarios.
+• Ofrecer información detallada sobre los productos disponibles.
+3. Requisitos Funcionales
+1. Gestión de Usuarios:
+o Registro de usuarios.
+o Inicio de sesión y cierre de sesión.
+o Recuperación de contraseñas.
+2. Publicación de Anuncios:
+o Los usuarios pueden añadir nuevos anuncios.
+o Edición y eliminación de anuncios por parte de los usuarios.
+o Subida de imágenes para los anuncios.
+3. Catálogo de Productos:
+o Visualización de productos disponibles.
+o Filtros de búsqueda por categoría, precio, ubicación, etc.
+o Detalle de cada producto con información completa y fotografías.
+4. Mensajería y Contacto:
+o Sistema de mensajería entre compradores y vendedores.
+o Formulario de contacto para consultas generales.
+
+
+5. Administración:
+o Panel de administración para la gestión de anuncios (crear, modificar,
+eliminar).
+o Gestión de usuarios y permisos.
+o Visualización de estadísticas y reportes de anuncios y usuarios
+(opcional).
+4. Requisitos No Funcionales
+1. Usabilidad:
+o Interfaz intuitiva y fácil de usar.
+o Diseño responsive para dispositivos móviles.
+2. Rendimiento:
+o Tiempo de respuesta rápido en la carga de páginas.
+o Capacidad para manejar múltiples usuarios simultáneamente.
+3. Seguridad:
+o Encriptación de contraseñas.
+o Protección contra ataques de inyección SQL.
+4. Compatibilidad:
+o Compatible con los principales navegadores web (Chrome, Firefox,
+Safari, Edge).
+5. Escalabilidad:
+o Estructura del sistema diseñada para permitir futuras ampliaciones y
+mejoras.
+7. Tecnologías a Utilizar
+• Lenguaje de Programación: PHP
+• Base de Datos: MySQL
+• Servidor Web: Apache2
+• Lenguajes de Marcado y Estilo: HTML5, CSS3
+• Lenguaje de Scripting: JavaScript (opcional)
