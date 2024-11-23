@@ -5,6 +5,14 @@
         phpinfo(); 
         exit;
       break;
+      case 'create':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $taskManager->createTask($_POST['title']);
+            header('Location: ' . BASE_URL);
+            exit;
+        }
+        require BASE_PATH . 'views/task_form.php';
+      break;
     }
   }
 ?>
